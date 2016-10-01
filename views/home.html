@@ -37,19 +37,49 @@
 
 
 			    <div class="row row-content" id="Analitica2">
-			    	<h2>{{chart.titolo}}</h2>
-						<qlik-visual appid="b74e2ae5-4cda-402d-bccc-55b2e162cb6c"
-							type="{{chart.Type}}"
-							cols='["{{chart.dimensione}}","={{chart.misura}}"]'
-							options='{
-								"orientation" : "horizontal",
-								"donut": {"showAsDonut": true } ,
-								"dataPoint": {"showLabels": true } ,
-								"dimensionAxis": {"show": "all" } ,
-								"measureAxis": {"show": "none" } ,
-								"color": {"auto": false , "mode": "byMeasure" }
-							}' >
-						</qlik-visual>
+				    <div id="mainLoop" ng-hide="chart.Loop">
+				    	<h2>{{chart.titolo}}</h2>
+					    <div class="col-lg-6" style="height:400px;">
+					    	
+								<qlik-visual appid="b74e2ae5-4cda-402d-bccc-55b2e162cb6c"
+									type="{{chart.Type}}"
+									cols='["{{chart.dimensione1}}","={{chart.misura}}"]'
+									options='{
+										"orientation" : "horizontal",
+										"donut": {"showAsDonut": true } ,
+										"dataPoint": {"showLabels": true } ,
+										"dimensionAxis": {"show": "all" } ,
+										"measureAxis": {"show": "none" } ,
+										"color": {"auto": false , "mode": "byMeasure" }
+									}' >
+								</qlik-visual>
+						</div>
+
+				    	<div class="col-lg-6" style="height:400px;">
+					    	
+								<qlik-visual appid="b74e2ae5-4cda-402d-bccc-55b2e162cb6c"
+									type="{{chart.Type}}"
+									cols='["{{chart.dimensione2}}","={{chart.misura}}"]'
+									options='{
+										"orientation" : "horizontal",
+										"donut": {"showAsDonut": true } ,
+										"dataPoint": {"showLabels": true } ,
+										"dimensionAxis": {"show": "all" } ,
+										"measureAxis": {"show": "none" } ,
+										"color": {"auto": false , "mode": "byMeasure" }
+									}' >
+								</qlik-visual>
+						</div>
+					</div>
+					<div id="distOraria" ng-show="chart.Loop">
+						<div class="row row-content">
+							<div class="col-lg-10">
+								<h2>Distribuzione Oraria</h2>
+
+								<div id="CHART1_ORARIO" style="height:400px;"></div>
+							</div>
+						</div>
+					</div>
 
 				</div>
 
