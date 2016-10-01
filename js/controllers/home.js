@@ -11,7 +11,7 @@
 app.obj.angularApp
 	.controller('controller.home', function ($scope, $rootScope, $location, $injector, $interval, api, utility) {
 
-		var cont = 0, coppia=0, SelezioneFiltro = 0;
+		var cont = -1, rDim=0, rFiltro = 0, rType=0;
 		$scope.chart={};
 	   //Put in interval, first trigger after 10 seconds 
 
@@ -20,9 +20,9 @@ app.obj.angularApp
 			"appId": "b74e2ae5-4cda-402d-bccc-55b2e162cb6c",
 			"chart" : {
 				
-				"type" : ["piechart","barchart"],
-				"dimensioni" : ["JobLevel","JobFunction"],
-				"misure" : "Count({<text={'$CAMPO$'}>}text)",
+				"type" : ["barchart"],
+				"dimensioni" : ["JobLevel","JobFunction","Lead.Industry"],
+				"misure" : "Count({<text={'$CAMPO$'}>}text)/Count({<Profilo={'MILLENNIAL','HIPPIE','SNOB','NERD'}>}Profile) * 100",
 				"title" :  "Chi preferisce il ",
 				"filtro" : [
 							 ["PC","Chi preferisce i PC?"],
@@ -32,19 +32,19 @@ app.obj.angularApp
 							 ["Ibiza","Chi preferisce Ibiza?"],
 							 ["Pantelleria","Chi sceglie Pantelleria?"],
 							 ["Apericena","Ecco a chi piace l'apericena..."],
-							 ["Lume di Candela","I romamtici che preferiscono il lume di candela"],
+							 ["LumeCandela","I romamtici che preferiscono il lume di candela"],
 							 ["Uber","Uber su tutto!"],
 							 ["Taxi","Meglio il buon vechio taxi"],
 							 ["Quotidiano","Chi preferisce leggere le notizie sulla carta"],
-							 ["News on Line","Chi invece preferisce leggere le notizie ON-LINE"],
+							 ["NewsOnLine","Chi invece preferisce leggere le notizie ON-LINE"],
 							 ["Kindle","Tanti libri in poco spazio e poco peso, ecco chi preferisce il Kindle"],
 							 ["Libro","Non rinuncio ad un buon libro stampato"],
-							 ["Concerto live","Concerto live for ever!"],
+							 ["Concerto","Concerto live for ever!"],
 							 ["Youtube","Preferisco la musica via Youtube"],
 							 ["Cinema","Non rinunciano al grande schermo"],
 							 ["Streaming","Meglio un buon film in streaming sul da gustare sul proprio divano"],
 							 ["Riunione","Meglio le riunioni live"],
-							 ["Conf call","Sfruttiamo la tecnologia ed evitiamo movimenti, meglio le conf call"],
+							 ["ConfCall","Sfruttiamo la tecnologia ed evitiamo movimenti, meglio le conf call"],
 							 ["Vela","Meglio la vela"],
 							 ["Yacht","Meglio lo Yacht"]
 							]
@@ -55,17 +55,18 @@ app.obj.angularApp
 	   var theInterval = $interval(function(){
 	    	
 	      	cont += 1;
-	      	coppia = cont % chartsLibrary.chart.type.length;
-	      	SelezioneFiltro = cont % chartsLibrary.chart.filtro.length;
-	      	$scope.chart.titolo = chartsLibrary.chart.filtro[SelezioneFiltro][1];
+	      	rDim = cont % chartsLibrary.chart.dimensioni.length;
+	      	rFiltro = cont % chartsLibrary.chart.filtro.length;
+	      	rType = cont % chartsLibrary.chart.type.length;
+	      	$scope.chart.titolo = chartsLibrary.chart.filtro[rFiltro][1];
 
 	      	$scope.chart.appId = chartsLibrary.appId;
-	      	$scope.chart.Type= chartsLibrary.chart.type[coppia];
-	      	$scope.chart.dimensione = chartsLibrary.chart.dimensioni[coppia];
+	      	$scope.chart.Type= chartsLibrary.chart.type[rType];
+	      	$scope.chart.dimensione = chartsLibrary.chart.dimensioni[rDim];
 	      	var str = chartsLibrary.chart.misure
-	      	$scope.chart.misura = str.replace("$CAMPO$",chartsLibrary.chart.filtro[SelezioneFiltro][0]);
+	      	$scope.chart.misura = str.replace("$CAMPO$",chartsLibrary.chart.filtro[rFiltro][0]);
 	      	
-	   }.bind(this), 10000); 
+	   }.bind(this), 15000); 
 
 
 
