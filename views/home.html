@@ -37,16 +37,14 @@
 
 
 			    <div class="row row-content" id="Analitica2">
-
+			    	<h2>{{chart.titolo}}</h2>
 						<qlik-visual appid="b74e2ae5-4cda-402d-bccc-55b2e162cb6c"
 							type="{{chart.Type}}"
 							cols='["{{chart.dimensione}}","={{chart.misura}}"]'
 							options='{
-								"title" : "On the fly barchart",
 								"orientation" : "horizontal",
-								"color" : {
-									"mode" : "byMeasure"
-								}
+								"donut": {"showAsDonut": true } ,
+								"color": {"auto": false , "mode": "byMeasure" }
 							}' >
 						</qlik-visual>
 
