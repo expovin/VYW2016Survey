@@ -1,0 +1,15 @@
+{
+  "name": "friluftsframjandet",
+  "version": "0.1",
+  "main": "index.html",
+  "ignore": [
+    "**/.*",
+    "libs"
+  ],
+  "dependencies": {
+    "domReady": "2.0.1",  
+    "bootstrap": "3.3.6",
+    "angular-bootstrap": "0.12.1",
+    "d3": "3.5.9"
+  }
+}

@@ -1,0 +1,130 @@
+
+@color-blue: #407ec9;
+@color-blue-dark: #123b71;
+@color-red: #da0063;
+@color-green: #77b62a;
+
+@font-sans: 'Source Sans Pro', sans-serif;
+@font-serif: Georgia,serif;
+
+html,
+body {
+	overflow-y: auto;
+	touch-action: auto;
+	font-family: @font-sans;
+	font-style: normal;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+}
+h1 {
+	font-family: @font-serif;
+	font-weight: bold;
+	font-size: 28px;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+h2, h3, h4, h5 {
+	font-family: @font-sans;
+	color: #666666;
+	font-weight: bold;
+	display: inline-block;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+h2 {
+	font-size: 18px;
+}
+h3 {
+	font-size: 15px;
+}
+a {
+	cursor: pointer;
+}
+div.qvobject, div.qvplaceholder {
+	padding: 0 0 0 0;
+	height: 400px;
+}
+div.qvobject.one {
+	height: 100px;
+}
+div.qvobject.fifty {
+	height: 50px;
+}
+.noMarginPadding {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.noMarginPaddingTopBottom {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+/*************
+ * HEADER 
+**************/
+
+/*************
+ * QLIK 
+**************/
+.qlik,
+.qlik a,
+.qlik a:hover {
+	color: #65a604 !important;
+}
+/*************
+ * BOOTSTRAP 
+**************/
+.container {
+	max-width: 950px;
+	width: 100%;
+	.row {
+		padding-bottom: 20px;
+		.btn {
+			font-weight: bold;
+			border-radius: 0;
+			text-transform: uppercase;
+			&.btn-success {
+				background-color: @color-green;
+				border-color: @color-green;
+			}
+			&.btn-danger {
+				background-color: @color-red;
+				border-color: @color-red;
+			}
+			&.btn-danger:hover,
+			&.btn-success:hover {
+				color: @color-green;
+				background-color: white;
+				border-color: lightgray;
+			}
+		}
+		.dropdown-menu {
+			.active,
+			.active a,
+			.active a:hover,
+			.active a:focus,
+			li:hover,
+			li a:hover {
+				color: white;
+				background-color: @color-green;
+			}
+			/*.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus*/
+		}
+		.scrollable-menu {
+			height: auto;
+			overflow-x: hidden;
+			z-index: 9999999;
+			max-height: 200px;
+		}
+	}
+}
+
+
+/*************
+ * ANGULAR 
+**************/
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}

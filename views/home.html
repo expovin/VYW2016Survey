@@ -1,0 +1,60 @@
+
+
+<!-- .container -->
+<div class="container " id="main" role="main">
+
+
+	<!-- .container -->
+	<!-- .content-section-b -->
+
+	     <!--  Profilo piu votato -->
+		<div class="col-lg-4">
+
+		<!--	<div class="container"> -->
+			    <div class="row row-content" id="ProfiloPrincipale">					
+					<img src="../../content/Default/{{ProfiloVotato}}_M.jpg" height="800px">
+				</div>
+		<!--	</div> -->
+			<h1 class="text-center">{{ProfiloVotato}}</h1>
+		</div>
+
+		 <!--  analitiche in loop -->
+		<div class="col-lg-8">
+		<!--	<div class="container">			-->
+			    <div class="row row-content" id="Analitica1">
+
+					<div class="col-lg-3 text-center" ng-repeat="Profilo in Profili">
+					    <div class="row row-content">
+							<div class="ProfileImage">
+								<img src="../../content/Default/{{Profilo.Tipo}}_S.jpg" height="200px">
+							</div>
+
+						</div>
+						<h2>{{Profilo.Share | number : 2}}%</h2>
+					</div>
+					
+				</div>
+
+
+			    <div class="row row-content" id="Analitica2">
+
+						<qlik-visual appid="b74e2ae5-4cda-402d-bccc-55b2e162cb6c"
+							type="{{chart.Type}}"
+							cols='["{{chart.dimensione}}","={{chart.misura}}"]'
+							options='{
+								"title" : "On the fly barchart",
+								"orientation" : "horizontal",
+								"color" : {
+									"mode" : "byMeasure"
+								}
+							}' >
+						</qlik-visual>
+
+				</div>
+
+				<!--		<div class="col-lg-3 qvobject" id="CHART1" data-qvid="CHART1" ng-repeat="chart in charts"></div> -->
+			</div>
+	<!--	</div> -->				
+	</div>
+
+
